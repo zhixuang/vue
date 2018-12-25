@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	 <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<style>
+ .v-enter,
+ .v-leaver-to
+ {
+transform: translateX(150px);
+opacity:0;
+ }
+ .v-enter-active,
+
+ .v-leave-active
+ {
+ 	 transition: all 0.8s ease;
+ }
+</style>
+<body>
+<!-- v-enter -->
+<!-- 过渡的开始状态 -->
+<!-- v-leave-to -->
+<!-- 进入过渡的结束状态 -->
+ <!-- /* v-enter-active 【入场动画的时间段】 */
+    /* v-leave-active 【离场动画的时间段】 */ -->
+<div id="app">
+ <input type="button" value="搞事情" @click="show=!show">
+ <transition>
+   <p v-if='show'>我会回来的</p>
+ </transition>
+</div>	
+</body>
+<script>
+var vm = new Vue({
+	el:'#app',
+	data:{
+       show:true
+   }
+
+})
+</script>
+</html>

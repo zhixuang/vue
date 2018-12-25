@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue-2.4.0.js"></script>
+</head>
+<body>
+<!-- <div  id="app"> 
+   <div v-bind:title='msg'>
+  
+   </div>
+</div>
+<script>
+   var vm=new Vue({
+   	el:'#app',
+   	data:{
+       msg:'小红变了'+ new Date().toLocaleString()
+   	}
+
+   })
+</script> -->
+
+			<div id="app3">
+			   <p v-show='msg'>好久不见</p>
+			</div>
+			<script>
+			 var vm =new Vue({
+			 	el:'#app3',
+			 	data:{
+			 		msg:3>1
+			 	}
+			 })
+</script> 
+<!-- <div id="app4">
+   <ol>
+   	<li v-for="x in w">
+   	{{x.text}}
+   	</li>
+   </ol>
+</div> -->
+
+<!-- <script>
+  var vm =new Vue({
+  	el:'#app4',
+  	data:{
+  		w:[
+  		   {text:'xiao'},
+  		   {text:'miao'},
+  		   {text:'石'},
+  		   {text:'中'},
+  		   {text:'仙'}
+
+
+
+  		]
+  	}
+  })
+</script> -->
+</body>
+</html>

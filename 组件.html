@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+<div id="app">
+<template id="xiaohong">
+<h1>这里有语法高亮和代码提示非常爽!!!</h1>
+</template>
+</div>
+	
+</body>
+<script>
+ // 1.extend方法创建组件对象, 使用component方法来注册
+ // var xiaohong = Vue.extend({
+ // 	template:'<h3>通过extend创建的子组件</h3>'
+ // })
+
+
+
+ // Vue.component('hongjie',xiaohong)
+ // var vm = new Vue({
+ // 	el:'#app',
+ // 	data:{
+
+ // 	}
+
+ // })
+
+// Vue.component('hongjie',{
+//     template:'<h1>通过直接创建对象来注册组件</h1>'
+// })
+// 
+// 
+Vue.component('hongjie',{
+    template:'#xiaohong',
+    data(){
+     return 
+    },
+    methods:{
+    // show(){}
+    }
+})
+var vm = new Vue({
+ 	el:'#app',
+ 	data:{
+
+ 	}
+
+ })
+</script>
+</html>

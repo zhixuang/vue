@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head> 
+<!-- <h1>JS实现数组去重（重复的元素只保留一个</h1> -->
+<body>
+<script>
+ // var str ="Hello world"
+ // document.write(str.indexOf("Hello")+"<br/>");
+ // document.write(str.indexOf("world")+"<br/>");
+ // document.write(str.indexOf("World"))
+ // 
+
+ // 
+ // 1.
+ // var arr=[1,11,2,3,3,44,4,4,5,5,];
+ // var arr2=[];
+ // for(var i = 0; i < arr.length; i++){
+ // 	// console.log(arr);
+ // 	if(arr2.indexOf(arr[i])==-1){  //数组arr2[]基于'自身'在不停push;
+ //       arr2.push(arr[i]);
+ // 	}
+ // 	console.log(arr2);
+ // }
+
+// 2.如果当前数组的第 i 项在当前数组中第一次出现的位置不是 i，那么表示第 i 项是重复的，忽略掉。否则存入结果数组。
+   // var arr=[1,11,2,3,3,44,4,4,5,5];
+   // var arr2=[];
+   // for(var i=0;i<arr.length;i++){  
+			// console.log(arr,i);
+   // 	if(arr.indexOf(arr[i])==i){  //indexOf判断元素的值是否与当前索引相等
+  //  		 arr2.push(arr[i]);
+        
+  //  	}
+  // }console.log(arr2);
+
+
+
+// 3.排序后相邻去除法 
+//  var arr=[1,11,2,3,3,44,4,4,5,5];
+
+//  console.log(arr)
+//  var arr2=[1];
+//  console.log(arr2)
+//  for(var i=0;i<arr.length;i++){
+//  	if(arr[i]!=arr2[arr2.length-1]){
+//  		console.log(arr2)
+//  		arr2.push(arr[i]);
+//  	}
+//  }
+// console.log(arr2)
+// 
+//4.优化遍历数组法（推荐）
+//双层循环，外循环表示从0到arr.length，内循环表示从i+1到arr.length
+//
+var arr=[1,11,2,3,3,44,4,4,5,5];
+
+var arr2=[];
+for(var i=0;i<arr.length;i++){
+
+	for(var j=i+1;j<arr.length;j++){
+		console.log(j)
+		if(arr[i]===arr[j]){
+			++i;
+		}
+	}
+	arr2.push(arr[i])
+}
+console.log(arr2)
+
+
+
+</script>	
+</body>
+</html>

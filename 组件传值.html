@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+	<div id="app">
+	<!-- v-bind:属性绑定 -->
+        <conl v-bind:pad='msg'></conl>	
+	</div>
+</body>
+<script>
+  var vm = new Vue({
+  	el:'#app',
+
+  	data:{
+         msg:'123sc 啊-父组件中的数据'
+  	},
+  	methods:{},
+  	components:{
+      conl:{
+      	data(){
+      		return{
+      			title:'xiaohong',
+      			content:'hongjie'
+      		}
+      	},
+          
+         template:'<h1 @click="asd">这是子组件 ---{{pad}}</h1>',
+         props:['pad'],
+
+          methods:{
+          	asd(){
+          		this.pad='xiaohong'
+
+          	}
+      	
+      }
+      
+      }
+
+  	}
+  })
+</script>
+</html>

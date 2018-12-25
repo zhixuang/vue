@@ -1,0 +1,123 @@
+vue day01
+ vue的使用步骤
+  1.导入js文件
+  2.创建vm实例对象
+  3.设置控制区域
+  4.enjoy
+
+VM实例的创建 
+   Vue是一个完全按照MVVM设计的框架
+   M:Model 数据模型层
+   V:View   视图
+   VM:View Model
+
+   Model就是数据模型层,在前端用于存储数据,MVVM的思想就是当Model存储数据后,将数据渲染到指定的View区域,当数据发生改变时也会自动同步到View区域,这个操作是由VM层来控制的.
+<script type="text/javascript">
+    var vm =new Vue({
+       el:'#app' , //指定要控制的区域,传入选择器即可
+       data:{    //Model层,前端存放数据用
+            msq:'我是数据'
+       }，
+
+
+    })
+</script>
+
+ 常用指令: 
+插值表达式:
+   {{}}
+
+ v-开头的都被成为vue内置指令
+   1.渲染文本
+      v-text
+
+    2.渲染HTML
+       v-html
+
+    3.解决差值表达式闪烁的问题
+       v-cloak
+       css代码:
+         <style>
+         [v-clocak] {
+         	display: none; 
+         }
+         </style>
+
+        html代码:
+
+           <div id="app">
+             <div v-cloak>{{msg}}</div>
+           </div>
+
+   解决闪烁问题的思路:将标签添加v-cloak属性,给标签添加样式为display:none, 当值表达式有数据的时候就会将标签自动显示
+
+
+
+
+注意:v-text和v-html会将标签内部的内容完全覆盖,而插值表达式可以在前后拼接内容
+
+
+ 4.绑定属性
+   v-bind简写:
+    HTML代码: 
+
+   <input type="text" v-bind:value="msg">
+   <input type="text" :value='msg+"123"'>
+
+    绑定属性可以针对标签自带的属性,也可以针对自定义属性
+
+     <input type="text" :flag='msg' :value='msg+"123"'>
+    
+    注意:以上的所有指令用到的msg都需要放到Vue实例的data属性中
+     vm实例代码:
+
+      let vm =new Vue({
+      el:'#app', //el对应的是vm的控制视图
+      })
+   5.绑定事件
+    v-on  简写 @
+
+
+过滤器  :
+
+
+1.定义全局过滤器
+   参数1:过滤器的名称
+   参数2:过滤器的处理函数
+
+
+
+
+
+  自定义按键别名:
+  Vue.config.keyCodes.F2 =113
+  
+
+
+
+ vue day04
+   列表动画 :
+      与单个元素动画不同,需要使用transition-group标签包裹
+      使用transition-group的注意事项:
+       1.v-for列表渲染时必须指定key
+       2.transition-group默认会渲染成span标签,可以通过tag属性指定要渲染的标签
+       3.appar属性可以让transition-groupo实现页面加载时的进场动画
+       4.其他地方同transition实现动画的方式,也需要添加css类样式完成动画
+       5.如果涉及到元素的删除动画,可以添加v-move类样式使其变得更平滑
+            <transition-group appear tag="ul">
+                <li v-for="item in list" :key="item.id"></li>
+              </transition-group>
+
+    组件化开发
+       组件化:在视图对页面的划分,为了提高代码复用性和维护性推出的思想,广泛应用在前端领域
+
+
+      定义组件
+          1.extend方法创建组件对象,使用component方法来注册
+          通过Vue.extend创建vue组件对象
+
+              var coml = Vue.extend({
+
+                 template:"<h3>通过extend创建的子组件1</h3>"
+
+            
